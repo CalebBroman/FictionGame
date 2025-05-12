@@ -1,3 +1,4 @@
+import random
 import wordHandler
 
 #Add possible word lists:
@@ -20,6 +21,9 @@ while True:
             print()
     #Get random word
     word = wordHandler.chooseWord(difficulty)
+    #Give random letter
+    rVal = random.random()
+    print("Included letter: " + word[int(rVal * 5)])
 
     #User guesses and clues back
     guesses = []
@@ -50,21 +54,21 @@ while True:
             print()
             break
     print("Guess overview:")
-    print("Total guesses: " + len(guesses))
+    print("Total guesses: " + str(len(guesses)))
     print()
     for i in range(len(guesses)):
         truthStr = "TTTTT"
         truthStr = truthStr[:guesses[i][2]] + 'F' + truthStr[guesses[i][2]+1:]
-        print(".")
+        print()
         print("Guess: " + guesses[i][0])
         print("Clues: " + guesses[i][1])
         print("Truth: " + truthStr)
-        print()
 
     #Ask to exit when done
     valid = False
+    print()
     while not valid:
-        print("Try again? (y/n)")
+        print("Play again? (y/n)")
         userVal = input("> ")
         if userVal == "n" or userVal == "y":
             valid = True
