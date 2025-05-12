@@ -7,7 +7,7 @@ def chooseWord(listName):
     #Choose random word
     rval = random.random()
     word = wordList[int(rval * len(wordList))]
-    return word
+    return word[:-1]
 
 
 def trueClues(word, guess):
@@ -41,7 +41,6 @@ def clueStrategy(trueClues):
     #change that value
     rval = random.random()
     tVal = (tVal + int(rval * 2) + 1) % 3
-    print(tVal)
     #Rebuild clue string
     if tVal == 0:
         actualClues = trueClues[:idx] + 'X' + trueClues[idx+1:]
