@@ -54,7 +54,7 @@ while True:
             print()
             break
     print("Guess overview:")
-    print("Total guesses: " + str(len(guesses)))
+    print("Total guesses: " + str(len(guesses) + 1))
     print()
     for i in range(len(guesses)):
         truthStr = "TTTTT"
