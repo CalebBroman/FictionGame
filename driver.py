@@ -27,6 +27,7 @@ while True:
 
     #User guesses and clues back
     guesses = []
+    usedWords = []
     while True:
         userVal = ""
         #Get the user's guess
@@ -38,6 +39,9 @@ while True:
             if not (len(userVal) == 5 and userVal.isalpha()):
                 print("Invalid input, please try again.")
                 print()
+            elif userVal.casefold() in usedWords:
+                print("Word already guessed, please enter a different word.")
+                print()
         userGuess = userVal.casefold()
         #check if user is correct
         if userGuess != word:
@@ -45,6 +49,7 @@ while True:
             trueClues = wordHandler.trueClues(word, userGuess)
             actualClues = wordHandler.clueStrategy(trueClues)
             guesses.append((userGuess, actualClues[0], actualClues[1]))
+            usedWords.append(userGuess)
             print("Your Guess: " + userGuess)
             print("Clues:      " + actualClues[0])
             print()
