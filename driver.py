@@ -31,7 +31,8 @@ while True:
     while True:
         userVal = ""
         #Get the user's guess
-        while not (len(userVal) == 5 and userVal.isalpha()):
+        valid = False
+        while not valid:
             print("Please enter a 5 letter word as a guess:")
             print()
             userVal = input("> ")
@@ -42,6 +43,8 @@ while True:
             elif userVal.casefold() in usedWords:
                 print("Word already guessed, please enter a different word.")
                 print()
+            else:
+                valid = True
         userGuess = userVal.casefold()
         #check if user is correct
         if userGuess != word:
